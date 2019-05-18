@@ -36,3 +36,4 @@ export class PostListComponent implements OnInit, OnDestroy {
     this.postsSub.unsubscribe();
   }
 }
+//teste para remover node_modules
