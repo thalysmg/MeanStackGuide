@@ -4,11 +4,25 @@
     <mat-form-field>
         <!-- Two way binding on the line below -->
         <!-- <input matInput [(ngModel)]="enteredTitle" type="text"> -->
-      <input name="title" matInput ngModel type="text" required minlength="6" #title="ngModel">
+      <input 
+        name="title" 
+        matInput 
+        ngModel 
+        type="text" 
+        required minlength="6"
+        placeholder="Título"
+        #title="ngModel">
       <mat-error *ngIf="title.invalid">Digite um título</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea name="content" matInput ngModel rows="6" required #content="ngModel"></textarea>
+      <textarea 
+        name="content" 
+        matInput 
+        ngModel 
+        rows="6" 
+        required
+        placeholder="Conteúdo"
+        #content="ngModel"></textarea>
       <mat-error *ngIf="content.invalid">Digite um conteúdo</mat-error>
     </mat-form-field>
     <button color="accent" mat-raised-button type="submit">Enviar</button>

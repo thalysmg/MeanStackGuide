@@ -14,14 +14,11 @@ export class PostCreateComponent {
 
   constructor(public postsService: PostsService) {}
 
-  //<textarea  cols="30" rows="10" [value]="newPost" #postInput></textarea>
-  // onAddPost(postInput: HTMLTextAreaElement) {
-  //   this.newPost = postInput.value;
-  // }
   onAddPost(form: NgForm) {
     if (form.invalid) {
       return;
     }
     this.postsService.addPost(form.value.title, form.value.content);
+    form.resetForm(); //limpa os valores do formulário
   }
 }
