@@ -5,3 +5,7 @@ textarea {
   border-right: 0;
   border-left: 0;
 }
+
+mat-spinner {
+  margin: auto;
+}

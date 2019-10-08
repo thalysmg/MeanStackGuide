@@ -1,13 +1,14 @@
 <!-- <textarea  cols="30" rows="10" [value]="newPost" #postInput></textarea> -->
 <mat-card>
-  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form *ngIf="!isLoading" (submit)="onSavePost(postForm)" #postForm="ngForm">
     <mat-form-field>
         <!-- Two way binding on the line below -->
         <!-- <input matInput [(ngModel)]="enteredTitle" type="text"> -->
       <input 
         name="title" 
         matInput 
-        ngModel 
+        [ngModel]="post?.title" 
         type="text" 
         required minlength="6"
         placeholder="Título"
@@ -18,7 +19,7 @@
       <textarea 
         name="content" 
         matInput 
-        ngModel 
+        [ngModel]="post?.content" 
         rows="6" 
         required
         placeholder="Conteúdo"

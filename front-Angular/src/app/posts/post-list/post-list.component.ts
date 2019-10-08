@@ -18,6 +18,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   // ];
   posts: Post[] = [];
   private postsSub: Subscription;
+  isLoading = false;
   // postsService: PostsService; o 'public' do construtor cria um atributo com o valor passado no construtor
 
   constructor(public postsService: PostsService) {
@@ -25,10 +26,12 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this.postsService.getPosts();
     this.postsSub = this.postsService.getPostUpdateListener()
     .subscribe((posts: Post[]) => {
       this.posts = posts;
+      this.isLoading = false;
     });
   }
 
